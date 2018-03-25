@@ -1,6 +1,6 @@
 let serialNo = 0;
 
-const toggleAddDetails = () =>{
+let toggleAddDetails = () =>{
     let inputNode = document.getElementById("addDetailsInput");
     if(inputNode.style.display == "none") {
         inputNode.style.display = "block";
@@ -12,7 +12,7 @@ const toggleAddDetails = () =>{
     disableCheckBoxes(true);
 }
 
-const toggleDeleteDetails = () =>{
+let toggleDeleteDetails = () =>{
     let inputNode = document.getElementById("deleteDetailsInput");
     if(inputNode.style.display == "none") {
         inputNode.style.display = "block";
@@ -26,7 +26,7 @@ const toggleDeleteDetails = () =>{
     insertNode.style.display="none";
 }
 
-const disableCheckBoxes = (flag) => {
+let disableCheckBoxes = (flag) => {
     let tableBody = document.getElementById("tableBodyRef");
     tableBody.childNodes.forEach( (rowChild) => {
         checkBoxRef = rowChild.firstChild.firstChild;
@@ -35,11 +35,11 @@ const disableCheckBoxes = (flag) => {
 }
 
 
-const deleteDetails = () => {
+let deleteDetails = () => {
     if(serialNo < 1) {
         toggleDeleteDetails();
-        let messageString = "Can't delete the entry as table is empty.";
-        return;
+        alert("Can't delete entry as table is empty");
+              return;
     }
     let tableBody = document.getElementById("tableBodyRef");
     let count = 0;
@@ -51,10 +51,9 @@ const deleteDetails = () => {
              --serialNo;
         }
     }
-    let messageString = `<center> <strong>${count}</strong> entries removed!</center>`;
+   
     if(count == 0) { 
-        messageString = `<center> <strong>No CheckBox Checked!</strong> </center>`;
-       
+       alert("no checkbox checked");       
     }
     
     if(serialNo == 0) {
@@ -64,9 +63,8 @@ const deleteDetails = () => {
     toggleDeleteDetails();
 }
 
-const addDetails = () => {
+let addDetails = () => {
     document.getElementById("deleteButton").disabled=false;
-    serialNo++;
     let nameRef = document.getElementById("name");
     let name = nameRef.value;
     let rollRef = document.getElementById("roll");
@@ -79,29 +77,31 @@ const addDetails = () => {
 
     if(validator(nameRef, rollRef, passYearRef, streamRef) == false)
         return;
+    serialNo++;
     createNewEntry(name, roll, passYear, stream);
-    let messageString = `<center> <strong>${roll}</strong> inserted successfully </center>`;
-
 }
 
-const validator = (nameRef, rollRef, passYearRef, streamRef) => {
-
+let validator = (nameRef, rollRef, passYearRef, streamRef) => {
 
     var nameExp = /^[A-Za-z]+$/;
     if(!nameExp.test(nameRef.value)){
+        alert("Not A valid Name");
         nameRef.focus();
         return false;
     }
     
     if(isNaN(rollRef.value) || (rollRef.value == "")){
+        alert("Not A valid rollno");
         rollRef.focus();
         return false;
     }
     if(isNaN(passYearRef.value) || (passYearRef.value == "")){
+        alert("Not A valid passyear");
         passYearRef.focus();
         return false;
     }
     if(!nameExp.test(streamRef.value)){
+        alert("Not A valid stream");
         streamRef.focus();
         return false;
     }
@@ -109,7 +109,7 @@ const validator = (nameRef, rollRef, passYearRef, streamRef) => {
 }
 
 
-const createNewEntry = (name, roll, passYear, stream) => {
+let createNewEntry = (name, roll, passYear, stream) => {
 
     let Id = serialNo;
     let tableBodyReference = document.getElementById("tableBodyRef");
@@ -177,7 +177,7 @@ const createNewEntry = (name, roll, passYear, stream) => {
     tableBodyReference.appendChild(tableRowNode);
 }
 
-const editDetails = (buttonId) => {
+let editDetails = (buttonId) => {
     let tableBody = document.getElementById("tableBodyRef");
     let parentRow = document.getElementById(`row${buttonId}`);
     let editButton = document.getElementById(buttonId);
@@ -215,7 +215,5 @@ const editDetails = (buttonId) => {
         }
         editButton.className="btn btn-primary";
         editButton.value="Edit";
-        let message = `<center><strong>Edited</stream> successfully!</center>`;
-    }
+      }
 }
-
