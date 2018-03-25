@@ -51,9 +51,9 @@ let deleteDetails = () => {
              --serialNo;
         }
     }
-    let messageString = `<center> <strong>${count}</strong> entries removed!</center>`;
+   
     if(count == 0) { 
-        messageString = `<center> <strong>No CheckBox Checked!</strong> </center>`;
+       alert("no checkbox checked");
        
     }
     
