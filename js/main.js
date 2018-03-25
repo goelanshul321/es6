@@ -38,8 +38,8 @@ const disableCheckBoxes = (flag) => {
 const deleteDetails = () => {
     if(serialNo < 1) {
         toggleDeleteDetails();
-        let messageString = "Can't delete the entry as table is empty.";
-        return;
+        alert("Can't delete entry as table is empty");
+              return;
     }
     let tableBody = document.getElementById("tableBodyRef");
     let count = 0;
