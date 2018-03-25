@@ -79,12 +79,9 @@ let addDetails = () => {
         return;
     serialNo++;
     createNewEntry(name, roll, passYear, stream);
-    let messageString = `<center> <strong>${roll}</strong> inserted successfully </center>`;
-
 }
 
 let validator = (nameRef, rollRef, passYearRef, streamRef) => {
-
 
     var nameExp = /^[A-Za-z]+$/;
     if(!nameExp.test(nameRef.value)){
@@ -214,7 +211,5 @@ let editDetails = (buttonId) => {
         }
         editButton.className="btn btn-primary";
         editButton.value="Edit";
-        let message = `<center><strong>Edited</stream> successfully!</center>`;
-    }
+      }
 }
-
