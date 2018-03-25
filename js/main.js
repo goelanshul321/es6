@@ -53,8 +53,7 @@ let deleteDetails = () => {
     }
    
     if(count == 0) { 
-       alert("no checkbox checked");
-       
+       alert("no checkbox checked");       
     }
     
     if(serialNo == 0) {
@@ -66,7 +65,6 @@ let deleteDetails = () => {
 
 let addDetails = () => {
     document.getElementById("deleteButton").disabled=false;
-    serialNo++;
     let nameRef = document.getElementById("name");
     let name = nameRef.value;
     let rollRef = document.getElementById("roll");
@@ -79,6 +77,7 @@ let addDetails = () => {
 
     if(validator(nameRef, rollRef, passYearRef, streamRef) == false)
         return;
+    serialNo++;
     createNewEntry(name, roll, passYear, stream);
     let messageString = `<center> <strong>${roll}</strong> inserted successfully </center>`;
 
