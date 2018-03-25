@@ -1,6 +1,6 @@
 let serialNo = 0;
 
-const toggleAddDetails = () =>{
+let toggleAddDetails = () =>{
     let inputNode = document.getElementById("addDetailsInput");
     if(inputNode.style.display == "none") {
         inputNode.style.display = "block";
@@ -12,7 +12,7 @@ const toggleAddDetails = () =>{
     disableCheckBoxes(true);
 }
 
-const toggleDeleteDetails = () =>{
+let toggleDeleteDetails = () =>{
     let inputNode = document.getElementById("deleteDetailsInput");
     if(inputNode.style.display == "none") {
         inputNode.style.display = "block";
@@ -26,7 +26,7 @@ const toggleDeleteDetails = () =>{
     insertNode.style.display="none";
 }
 
-const disableCheckBoxes = (flag) => {
+let disableCheckBoxes = (flag) => {
     let tableBody = document.getElementById("tableBodyRef");
     tableBody.childNodes.forEach( (rowChild) => {
         checkBoxRef = rowChild.firstChild.firstChild;
@@ -35,7 +35,7 @@ const disableCheckBoxes = (flag) => {
 }
 
 
-const deleteDetails = () => {
+let deleteDetails = () => {
     if(serialNo < 1) {
         toggleDeleteDetails();
         alert("Can't delete entry as table is empty");
@@ -64,7 +64,7 @@ const deleteDetails = () => {
     toggleDeleteDetails();
 }
 
-const addDetails = () => {
+let addDetails = () => {
     document.getElementById("deleteButton").disabled=false;
     serialNo++;
     let nameRef = document.getElementById("name");
@@ -84,7 +84,7 @@ const addDetails = () => {
 
 }
 
-const validator = (nameRef, rollRef, passYearRef, streamRef) => {
+let validator = (nameRef, rollRef, passYearRef, streamRef) => {
 
 
     var nameExp = /^[A-Za-z]+$/;
@@ -109,7 +109,7 @@ const validator = (nameRef, rollRef, passYearRef, streamRef) => {
 }
 
 
-const createNewEntry = (name, roll, passYear, stream) => {
+let createNewEntry = (name, roll, passYear, stream) => {
 
     let Id = serialNo;
     let tableBodyReference = document.getElementById("tableBodyRef");
@@ -177,7 +177,7 @@ const createNewEntry = (name, roll, passYear, stream) => {
     tableBodyReference.appendChild(tableRowNode);
 }
 
-const editDetails = (buttonId) => {
+let editDetails = (buttonId) => {
     let tableBody = document.getElementById("tableBodyRef");
     let parentRow = document.getElementById(`row${buttonId}`);
     let editButton = document.getElementById(buttonId);
