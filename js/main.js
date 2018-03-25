@@ -85,19 +85,23 @@ let validator = (nameRef, rollRef, passYearRef, streamRef) => {
 
     var nameExp = /^[A-Za-z]+$/;
     if(!nameExp.test(nameRef.value)){
+        alert("Not A valid Name");
         nameRef.focus();
         return false;
     }
     
     if(isNaN(rollRef.value) || (rollRef.value == "")){
+        alert("Not A valid rollno");
         rollRef.focus();
         return false;
     }
     if(isNaN(passYearRef.value) || (passYearRef.value == "")){
+        alert("Not A valid passyear");
         passYearRef.focus();
         return false;
     }
     if(!nameExp.test(streamRef.value)){
+        alert("Not A valid stream");
         streamRef.focus();
         return false;
     }
