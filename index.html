@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/materialize.min.css">
+    <title>ES6 Project</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">Admin Page</h1>
+        <div class="row col m12">
+        
+            <table class="table striped">
+                <thead>
+                    <tr>
+                        <th>Delete</th>
+                        <th>Name</th>
+                        <th>Roll No</th>
+                        <th>Passout Year</th>
+                        <th>Stream</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBodyRef"></tbody>
+            </table>
+        </div>
+    
+        <br><br><br><br>
+
+        <br><br>
+        <div class="row center-align">
+            <div class="col m6">
+                <button class="btn waves-effect waves-light" onclick="toggleAddDetails()">Add Details</button> 
+            </div>  
+            <div class="col m6">
+                <button class="btn waves-effect waves-light" id="deleteButton" disabled="true" onclick="toggleDeleteDetails()">Remove Details</button>
+            </div>        
+        </div>
+
+        <br>
+        <div class="row center-align">
+            <div class="col m6">
+            </div>
+            <div class="col m6" id="deleteDetailsInput" style="display: none">
+                <input class="btn waves-effect waves-light red" type="button" name="delete" value="Delete" onclick="deleteDetails()">
+            </div>        
+        </div>
+    
+        <br><br><br>
+        <div class="container">
+            <div id="addDetailsInput" style="display: none">
+                <div class="input-field">
+                    <!-- <label for="name">Name:</label> -->
+                    <input type="text" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="input-field">
+                    <!-- <label for="roll">Roll No:</label> -->
+                    <input type="text" id="roll" name="roll" placeholder="Roll No">
+                </div>
+                <div class="input-field">
+                    <!-- <label for="passYear">Passout Year:</label> -->
+                    <input type="text" id="passYear" name="passYear" placeholder="Passout Year">
+                </div>
+                <div class="input-field">
+                    <!-- <label for="stream">Stream:</label> -->
+                    <input type="text" id="stream" name="stream" placeholder="Stream">
+                </div>
+                <input class="btn waves-effect" type="button" name="add" value="Add" onclick="addDetails()">
+            </div>
+        </div>
+
+        <div class="container">
+            
+                
+        </div>
+
+        <br><br>
+
+    </div>
+</body>
+</html>
