@@ -31,6 +31,7 @@ let disableCheckBoxes = (flag) => {
     tableBody.childNodes.forEach( (rowChild) => {
         checkBoxRef = rowChild.firstChild.firstChild;
         checkBoxRef.disabled = flag;
+        console.log(checkBoxRef);
     })
 }
 
